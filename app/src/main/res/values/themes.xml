@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PrayersTimesApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/colorAccent</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimaryDark</item>
+        <item name="colorSecondaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnSecondary">@color/colorPrimaryDark</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="21">@color/colorPrimary</item>
+
+        <!-- Customize your theme here. -->
+        <item name="fontFamily">@font/font1</item>
+        <item name="android:fontFamily">@font/font1</item>
+
+
+    </style>
+
+
+</resources>

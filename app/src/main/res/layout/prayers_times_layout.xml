@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="time"
+            type="com.ahmed.m.hassaan.prayerstimesapp.data.network.responses.PrayersTimes" />
+
+        <variable
+            name="nextPrayer"
+            type="String" />
+
+        <variable
+            name="timeLeft"
+            type="String" />
+
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:animateLayoutChanges="true"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_30sdp"
+        app:contentPadding="@dimen/_20sdp"
+        app:strokeColor="@color/black_60"
+        app:strokeWidth="@dimen/_1sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/lblPrayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@{nextPrayer,default=@string/Isha}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_25ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblNextPrayer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/next_prayer"
+                android:textColor="@color/black_80"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toStartOf="@id/lblPrayerName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/lblPrayerName" />
+
+
+            <TextView
+                android:id="@+id/lblTimeLeft"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@{timeLeft,default=@string/time_left}"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias=".2"
+                app:layout_constraintStart_toEndOf="@id/lblPrayerName"
+                app:layout_constraintTop_toTopOf="@id/lblPrayerName"
+
+
+                />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/lbls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="lblNextPrayer,lblPrayerName,lblTimeLeft"
+
+                app:layout_constraintBottom_toBottomOf="@id/lblTimeLeft"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <include
+                android:id="@+id/fajrPrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/lbls"
+                app:prayerName="@{@string/Fajr}"
+                app:time="@{time.fajr}" />
+
+            <include
+                android:id="@+id/sunrisePrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fajrPrayerTime"
+                app:prayerName="@{@string/Sunrise}"
+                app:time="@{time.sunrise}" />
+
+            <include
+                android:id="@+id/duhrPrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sunrisePrayerTime"
+                app:prayerName="@{@string/Duhr}"
+                app:time="@{time.dhuhr}" />
+
+            <include
+                android:id="@+id/asrPrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/duhrPrayerTime"
+                app:prayerName="@{@string/Asr}"
+                app:time="@{time.asr}" />
+
+            <include
+                android:id="@+id/maghribPrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/asrPrayerTime"
+                app:prayerName="@{@string/Maghrib}"
+                app:time="@{time.maghrib}" />
+
+            <include
+                android:id="@+id/ishaPrayerTime"
+                layout="@layout/item_prayer_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/maghribPrayerTime"
+                app:prayerName="@{@string/Isha}"
+                app:time="@{time.isha}" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="address"
+            type="String" />
+
+        <variable
+            name="date"
+            type="String" />
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:animateLayoutChanges="true"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_30sdp"
+        app:contentPadding="@dimen/_20sdp"
+        app:strokeColor="@color/black_60"
+        app:strokeWidth="@dimen/_1sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{date}"
+                tools:text="Dec 25 2024"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lblAddress"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                tools:text="Mansoura,Egypt, St"
+                android:text="@{address}"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toStartOf="@id/btnPreviousDay"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@id/btnNextDay"
+                app:layout_constraintTop_toBottomOf="@id/lblDate" />
+
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@null"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="@{v->listener.onClick(v)}"
+                android:rotation="180"
+                android:id="@+id/btnPreviousDay"
+                android:src="@drawable/ic_right_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:contentDescription="@null"
+                android:clickable="true"
+                android:onClick="@{v->listener.onClick(v)}"
+                android:focusable="true"
+                android:id="@+id/btnNextDay"
+                android:src="@drawable/ic_right_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

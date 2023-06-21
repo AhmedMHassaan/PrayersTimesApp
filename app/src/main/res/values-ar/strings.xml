@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تطبيق أوقات الصلاة</string>
+    <string name="alert">تحذير</string>
+    <string name="next_prayer">الصلاة القادمة : </string>
+
+    <string name="Fajr">الفجر</string>
+    <string name="Sunrise">الشروق</string>
+    <string name="Duhr">الظهر</string>
+    <string name="Asr">العصر</string>
+    <string name="Maghrib">المغرب</string>
+    <string name="Isha">العشاء</string>
+    <string name="time_left">الوقت المتبقي</string>
+    <string name="hours">س</string>
+    <string name="minutes">د</string>
+    <string name="seconds">ث</string>
+    <string name="connected_to_network">متصل بالإنترنت</string>
+    <string name="not_connected_to_network">تم فقد الإتصال بالإنترنت</string>
+    <string name="location_permission_refused">تم رفض إذن الموقع</string>
+    <string name="location_refused_message">من فضلك قم بالسماح لإذن استخدام الموقع \nنحن نستخدم موقعك لمعرفة مواقيت الصلاة الصحيحة</string>
+    <string name="accept_permission">السماح</string>
+    <string name="show_qibla_direction">عرض اتجاه القبلة</string>
+
+</resources>

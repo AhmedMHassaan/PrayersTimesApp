@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Prayers Times App</string>
+    <string name="alert">Alert</string>
+    <string name="next_prayer">Next Prayer : </string>
+
+    <string name="Fajr">Fajr</string>
+    <string name="Sunrise">Sunrise</string>
+    <string name="Duhr">Duhr</string>
+    <string name="Asr">Asr</string>
+    <string name="Maghrib">Maghrib</string>
+    <string name="Isha">Isha</string>
+    <string name="time_left">time left</string>
+    <string name="hours">h</string>
+    <string name="minutes">m</string>
+    <string name="seconds">s</string>
+    <string name="connected_to_network">Connected To Internet</string>
+    <string name="not_connected_to_network">Not Connected To Internet</string>
+    <string name="location_permission_refused">Location Permission Refused</string>
+    <string name="location_refused_message">Please Accept Location Permission To Complete Progress\nWe take your location to get prayers time</string>
+    <string name="accept_permission">Accept Permission</string>
+    <string name="show_qibla_direction">Show Qibla Direction</string>
+</resources>

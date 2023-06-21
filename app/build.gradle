@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'kotlin-kapt'
+
+
+}
+
+android {
+    namespace 'com.ahmed.m.hassaan.prayerstimesapp'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.ahmed.m.hassaan.prayerstimesapp"
+        minSdk 21
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+
+        dataBinding true
+        viewBinding = true
+
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+//        jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+//    implementation project(path: ':imagepicker')
+    implementation project(path: ':core')
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+
+    implementation 'com.github.GrenderG:Toasty:1.5.2' // Toasty
+
+    implementation 'com.intuit.sdp:sdp-android:1.1.0' // SDP For Dimensions And Distinct
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'  // SSP For Size
+
+
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0' // Retrofit
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Gson Converter
+    implementation 'com.google.code.gson:gson:2.10.1'  // gson
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'  // RxJavaAdapter with Retorfit
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11'
+    // Retrofit logging intercept
+
+
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+// ViewModel & liveData
+
+    def room_version = '2.5.1'   // for room
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version" // room
+    kapt "androidx.room:room-compiler:$room_version" // room compiler
+//    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+//    annotationProcessor "android.arch.persistence.room:compiler:1.1.1" // room compiler
+
+
+    def nav_version = '2.6.0' // nav component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation 'com.github.prabhat1707:EasyWayLocation:2.4' // for get location
+    implementation 'com.airbnb.android:lottie:6.0.1' // lottie json animation
+
+    implementation 'com.github.sharish:ShimmerRecyclerView:v1.3' // shimmer recView
+
+
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0' // For ProgressDialog
+
+    implementation 'net.danlew:android.joda:2.12.5' // Joda For Time&Calculating
+
+    implementation 'com.google.android.gms:play-services-maps:18.1.0' // google maps
+
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+
+
+        <variable
+            name="viewModel"
+            type="com.ahmed.m.hassaan.prayerstimesapp.presentation.viewmodels.HomeViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.home.HomeActivity">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            app:elevation="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15ssp" />
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/rightGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".04" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/leftGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".96" />
+
+
+                <include
+                    android:id="@+id/dateLayoutWithButtons"
+                    layout="@layout/date_details_with_next_buttoins"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:address="@{viewModel.addressLiveData}"
+                    app:date="@{viewModel.dateLivedata}"
+                    app:layout_constraintEnd_toStartOf="@id/leftGuide"
+                    app:layout_constraintStart_toEndOf="@id/rightGuide"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:listener="@{listener}" />
+
+                <include
+                    android:id="@+id/prayersTimesLayout"
+                    layout="@layout/prayers_times_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintBottom_toTopOf="@id/btnShowQiblaDirection"
+                    app:layout_constraintEnd_toStartOf="@id/leftGuide"
+                    app:layout_constraintStart_toEndOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/dateLayoutWithButtons"
+                    app:nextPrayer="@{viewModel.nextPrayerNameLiveData}"
+                    app:time="@{viewModel.timesLiveData}"
+                    app:timeLeft="@{viewModel.remainingTimeUntilAzan}" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShowQiblaDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:inputType="text"
+                    android:onClick="@{v->listener.onClick(v)}"
+                    android:text="@string/show_qibla_direction"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15ssp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/leftGuide"
+                    app:layout_constraintStart_toEndOf="@id/rightGuide"
+                    app:layout_constraintTop_toBottomOf="@id/prayersTimesLayout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <include
+
+            android:id="@+id/progress"
+            layout="@layout/progress_layout"
+            android:visibility="@{viewModel.progressLiveData?android.view.View.VISIBLE:android.view.View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textProgress="@{`جار التحميل`}"
+            tools:visibility="gone" />
+
+        <include
+
+            android:id="@+id/locationRefusedLayout"
+            layout="@layout/location_permission_refused"
+            android:visibility="@{viewModel.locationPermissionCanceled?android.view.View.VISIBLE:android.view.View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:listener="@{listener}"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
