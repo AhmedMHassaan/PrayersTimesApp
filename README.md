@@ -13,17 +13,19 @@ This is Task For Alalmiya alhura
 * SharedPreferences
 
 
-**Languages
-*Kotlin and Java
+# Languages
+* Kotlin and Java
 
-**Images
+** Images
 
 <img src="Images/1.jpg" alt="Screen Shot Of Design" style="width:300px;height:600px;">
 <img src="Images/2.jpg" alt="Screen Shot Of Design" style="width:300px;height:600px;">
 <img src="Images/3.jpg" alt="Screen Shot Of Design" style="width:300px;height:600px;">
+<img src="Images/4.jpg" alt="Screen Shot Of Design" style="width:300px;height:600px;">
+<img src="Images/5.jpg" alt="Screen Shot Of Design" style="width:300px;height:600px;">
 
 
 
-#installing #App
+# installing App
 
-<a href="https://raw.githubusercontent.com/AhmedMHassaan/PrayersTimesApp/master/Apk/PrayerApp.apk" target="_blanc">Download<a/>
+<a href="https://raw.githubusercontent.com/AhmedMHassaan/PrayersTimesApp/master/APK/PeayerApp.apk" target="_blanc">Download<a/>
