@@ -26,4 +26,5 @@ This is Task For Alalmiya alhura
 
 #installing #App
 
-<a href="https://raw.githubusercontent.com/AhmedMHassaan/PrayersTimesApp/master/Apk/PrayerApp.apk" target="_blanc">Download<a/>
+.apk
+<a href="https://raw.githubusercontent.com/AhmedMHassaan/PrayersTimesApp/master/APK/PeayerApp.apk" target="_blanc">Download<a/>
