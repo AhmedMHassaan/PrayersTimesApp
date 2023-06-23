@@ -11,9 +11,11 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.ahmed.m.hassaan.prayerstimesapp.R
 import com.ahmed.m.hassaan.prayerstimesapp.base.activity.BaseActivityBinding
 import com.ahmed.m.hassaan.prayerstimesapp.databinding.ActivityHomeBinding
+import com.ahmed.m.hassaan.prayerstimesapp.presentation.ui.QiblaTypeBottomSheet
 import com.ahmed.m.hassaan.prayerstimesapp.presentation.ui.qibla.QiblaDirectionActivity
 import com.ahmed.m.hassaan.prayerstimesapp.presentation.ui.qibla_live.CompassActivity
 import com.ahmed.m.hassaan.prayerstimesapp.presentation.viewmodels.HomeViewModel
@@ -59,16 +61,10 @@ class HomeActivity : BaseActivityBinding<ActivityHomeBinding>(), View.OnClickLis
         }
 
         homeViewModel.qiblaDirectionsLivedata.observe(this) {
-            startActivity(
-                Intent(
-                    this@HomeActivity,
-                    CompassActivity::class.java
-                ).also { intent ->
-                    intent.putExtra("lat", it.latitude)
-                    intent.putExtra("long", it.longitude)
-                    intent.putExtra("dir", it.direction)
-                }
-            )
+            val bottomSheetChooser = QiblaTypeBottomSheet(it.latitude,it.longitude, it.direction)
+            bottomSheetChooser.show(supportFragmentManager, "")
+
+
         }
 
         internetConnectivityLiveData.observe(this){

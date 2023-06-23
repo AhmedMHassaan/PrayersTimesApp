@@ -11,6 +11,7 @@ import android.view.View.INVISIBLE
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import com.ahmed.m.hassaan.prayerstimesapp.R
+import com.ahmed.m.hassaan.prayerstimesapp.base.App
 import com.ahmed.m.hassaan.prayerstimesapp.base.activity.BaseActivityBinding
 import com.ahmed.m.hassaan.prayerstimesapp.data.network.responses.QiblaDirection
 import com.ahmed.m.hassaan.prayerstimesapp.databinding.ActivityCompassBinding
@@ -27,7 +28,7 @@ class CompassActivity : BaseActivityBinding<ActivityCompassBinding>() {
     private var direction: Double = 0.0
 
 
-    private var currentAzimuth: Float = 0f
+    private var currentAngle: Float = 0f
 
 
     @SuppressLint("NewApi")
@@ -53,13 +54,13 @@ class CompassActivity : BaseActivityBinding<ActivityCompassBinding>() {
 
     override fun onStart() {
         super.onStart()
-        Log.d(TAG, "start compass")
+        Log.d(App.APP_TAG, "CompassActivity - onStart: start compass ")
         compass?.start()
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d(TAG, "stop compass")
+        Log.d(App.APP_TAG, "CompassActivity - onStop: stop compass ")
         compass?.stop()
     }
 
@@ -83,11 +84,11 @@ class CompassActivity : BaseActivityBinding<ActivityCompassBinding>() {
         // Log.d(TAG, "will set rotation from " + currentAzimuth + " to "                + azimuth);
 
         val an = RotateAnimation(
-            -currentAzimuth, -azimuth,
+            -currentAngle, -azimuth,
             Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
             0.5f
         )
-        currentAzimuth = azimuth
+        currentAngle = azimuth
         an.duration = 500
         an.repeatCount = 0
         an.fillAfter = true
@@ -99,11 +100,11 @@ class CompassActivity : BaseActivityBinding<ActivityCompassBinding>() {
 
         val qiblaDir = direction
         val an = RotateAnimation(
-            -currentAzimuth + qiblaDir.toFloat(), -azimuth,
+            -currentAngle + qiblaDir.toFloat(), -azimuth,
             Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF,
             0.5f
         )
-        currentAzimuth = azimuth
+        currentAngle = azimuth
         an.duration = 500
         an.repeatCount = 0
         an.fillAfter = true
@@ -120,10 +121,5 @@ class CompassActivity : BaseActivityBinding<ActivityCompassBinding>() {
     override fun getLayoutId() = R.layout.activity_compass
 
 
-    companion object {
-        private val TAG = CompassActivity::class.java.simpleName
-        private const val KEY_LOC = "SAVED_LOC"
-        private const val KA_BA_POSITION_LONGITUDE = 39.826206
-        private const val KA_BA_POSITION_LATITUDE = 21.422487
-    }
+
 }

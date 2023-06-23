@@ -20,5 +20,7 @@
     <string name="location_refused_message">من فضلك قم بالسماح لإذن استخدام الموقع \nنحن نستخدم موقعك لمعرفة مواقيت الصلاة الصحيحة</string>
     <string name="accept_permission">السماح</string>
     <string name="show_qibla_direction">عرض اتجاه القبلة</string>
+    <string name="using_compass">باستخدام البوصلة</string>
+    <string name="using_google_map">باستخدام خرائط جوجل</string>
 
 </resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Base.Theme.PrayersTimesApp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUsingGoogleMap"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:inputType="textPersonName"
+            android:onClick="@{v->listener.onClick(v)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/using_google_map"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:cornerRadius="@dimen/_10sdp"
+            app:icon="@drawable/location"
+            app:iconGravity="end"
+            app:iconPadding="@dimen/_1sdp"
+            app:iconSize="@dimen/_25sdp"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".7"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUsingNormal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:inputType="textPersonName"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:onClick="@{v->listener.onClick(v)}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/using_compass"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15ssp"
+            app:cornerRadius="@dimen/_10sdp"
+            app:icon="@drawable/ic_compass"
+            app:iconGravity="end"
+            app:iconPadding="@dimen/_1sdp"
+            app:iconSize="@dimen/_25sdp"
+            app:iconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUsingGoogleMap"
+            app:layout_constraintWidth_percent=".7"
+            app:strokeColor="@color/black"
+            app:strokeWidth="@dimen/_1sdp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

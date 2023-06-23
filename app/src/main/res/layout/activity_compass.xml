@@ -36,7 +36,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
             android:scaleType="fitXY"
-            android:src="@drawable/jarum_qiblat"
+            android:src="@drawable/qibla_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
