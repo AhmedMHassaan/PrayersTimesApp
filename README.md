@@ -1,5 +1,5 @@
-# MadarSoftTask
-This is Task For Alalmiya alhura 
+# Prayers App
+
 
 * Used in This Project
 * Android Studio
